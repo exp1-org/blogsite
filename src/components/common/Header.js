@@ -18,7 +18,6 @@ const Header = () => {
   const submit = useSubmit();
   const isLoggedIn = useRouteLoaderData("token-loader");
   const { enqueueSnackbar } = useSnackbar();
-  const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const backBtnHandler = () => {
     setModalOpen(false);
@@ -30,14 +29,6 @@ const Header = () => {
 
   const logoutHandler = () => {
     setModalOpen(true);
-  };
-
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
   };
 
   const showSnack = (message, variant) => {
@@ -100,7 +91,6 @@ const Header = () => {
                 aria-label="account of current user"
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
-                onClick={handleOpenNavMenu}
                 color="inherit"
               >
                 <MenuIcon />
@@ -108,7 +98,6 @@ const Header = () => {
 
               <Button
                 sx={{ my: 2, color: "#50bfa0", display: "block" }}
-                onClick={handleCloseNavMenu}
               >
                 <Link to={`/blogs`} style={{ textDecoration: "none" }}>
                   Blogs

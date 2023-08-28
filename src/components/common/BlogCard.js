@@ -4,20 +4,18 @@ import {
   CardContent,
   Typography,
   CardActions,
-  Button,
 } from "@mui/material";
 import { Link, useSubmit } from "react-router-dom";
 import IconButton from "@mui/material/IconButton";
 import DeleteIcon from "@mui/icons-material/Delete";
-import ModeEditIcon from "@mui/icons-material/ModeEdit";
 import VisibilityIcon from "@mui/icons-material/Visibility";
-import { blue, green, red } from "@mui/material/colors";
 import { useRouteLoaderData } from "react-router-dom";
 import { useState } from "react";
 import Modal from "./Modal";
 
 const BlogCard = (props) => {
   const [modelOpen, setModalOpen] = useState(false);
+  // eslint-disable-next-line
   const [deleteBlog, setDeleteBlog] = useState(false);
   const submit = useSubmit();
   const isLoggedIn = useRouteLoaderData("token-loader");

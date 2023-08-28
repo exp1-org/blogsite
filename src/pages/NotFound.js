@@ -1,7 +1,6 @@
-import classes from "./css/NotFound.module.css";
 import React from "react";
 import { Box, Button, Typography } from "@mui/material";
-import { grey, purple } from "@mui/material/colors";
+import { grey } from "@mui/material/colors";
 import { Link, useRouteError } from "react-router-dom";
 
 const primary = grey[800];

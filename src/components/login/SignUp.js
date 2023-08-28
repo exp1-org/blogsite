@@ -18,7 +18,6 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Alert from "@mui/material/Alert";
 import axios from "axios";
 import Alertt from "../common/Alertt";
 import { Card, CardContent } from "@mui/material";
@@ -34,13 +33,13 @@ const SignUp = (props) => {
   const navigate = useNavigate();
   const isLoggedIn = useRouteLoaderData("token-loader");
   const signUpResponse = useActionData();
-  const [errors, setErrors] = React.useState([]);
 
   React.useEffect(() => {
     console.log("useEffect");
     if (isLoggedIn) {
       navigate("/blogs");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const [open, setOpen] = React.useState(false);
@@ -53,13 +52,14 @@ const SignUp = (props) => {
         setOpen(true);
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [signUpResponse]);
   const AlertCloseHandler = () => {
     setOpen(false);
   };
   return (
     <ThemeProvider theme={defaultTheme}>
-      <Container component="main" maxWidth="xs" sx={{padding: 4}}>
+      <Container component="main" maxWidth="xs" sx={{padding: 12}}>
         <CssBaseline />
         <div style={{ margin: "15% auto" }}>
           <Card sx={{ backgroundColor: "white", padding: 2, boxShadow: 3 }}>

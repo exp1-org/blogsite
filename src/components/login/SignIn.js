@@ -36,6 +36,7 @@ const SignIn = (props) => {
     if (isLoggedIn) {
       navigate("/blogs");
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   const [open, setOpen] = React.useState(false);
   const [errorMsg, seterrorMsg] = React.useState("");
@@ -48,13 +49,14 @@ const SignIn = (props) => {
         setOpen(true);
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [loginResponse]);
   const AlertCloseHandler = () => {
     setOpen(false);
   };
   return (
     <ThemeProvider theme={defaultTheme}>
-      <Container component="main" maxWidth="xs" sx={{padding: 5}}>
+      <Container component="main" maxWidth="xs" sx={{padding: 13}}>
         <CssBaseline />
         <div style={{margin: "20% auto"}}>
         <Card sx={{ backgroundColor: "white", padding: 2, boxShadow: 3 }}>

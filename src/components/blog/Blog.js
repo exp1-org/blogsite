@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  useLoaderData,
   useRouteLoaderData,
   redirect,
   json,
@@ -9,9 +8,6 @@ import {
 import CssBaseline from "@mui/material/CssBaseline";
 import Grid from "@mui/material/Grid";
 import Container from "@mui/material/Container";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import TwitterIcon from "@mui/icons-material/Twitter";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import MainFeaturedPost from "./MainFeaturedPost";
 import Main from "./Main";
@@ -95,7 +91,7 @@ export async function action({ request, params }) {
   const blogId = params.id;
   const deleteUrl = deleteBlogURL + `/${blogId}`;
   try {
-    const res = await axios.delete(deleteUrl, { headers: { Authorization } });
+    await axios.delete(deleteUrl, { headers: { Authorization } });
   } catch (error) {
     throw json(
       { errorMsg: error.response.data.error },

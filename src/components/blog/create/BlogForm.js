@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Form,
   json,
@@ -9,7 +9,6 @@ import {
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -23,7 +22,6 @@ import { CardContent } from "@mui/material";
 
 const base = process.env.REACT_APP_BASE_URL;
 const createBlogUrl = base + process.env.REACT_APP_CREATE_BLOG;
-const updateBlogUrl = base + process.env.REACT_APP_UPDATE_BLOG;
 
 const defaultTheme = createTheme();
 const BlogForm = (props) => {
@@ -51,6 +49,7 @@ const BlogForm = (props) => {
         setOpen(true);
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [blogResponse]);
 
   const AlertCloseHandler = () => {
@@ -176,7 +175,7 @@ export async function action({ request, params }) {
   try {
     if (request.method === "POST") {
       try {
-        const res = await axios.post(createBlogUrl, reqData, {
+        await axios.post(createBlogUrl, reqData, {
           headers: {
             Authorization,
           },

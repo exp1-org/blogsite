@@ -17,7 +17,6 @@ function Filter(props) {
   const [endDate, setendDate] = React.useState("");
   const [startDate, setstartDate] = React.useState("");
   const [category, setCategory] = React.useState("");
-  const [loading, setLoading] = React.useState(true);
   function handleClick() {
     if (category && startDate && endDate) {
       console.log(startDate, endDate, category);
@@ -34,26 +33,12 @@ function Filter(props) {
     navigate(`/blogs?category=${category}`);
   }
 
-  const filterEligibility = () => {
-    // console.log(category,endDate,startDate);
-    // console.log(category || (endDate && startDate));
-    // console.log()
-    // if(category ||(endDate & startDate)){
-    //     console.log("inside");
-    // }
-    return !(category | (endDate & startDate));
-  };
-
   const clearFiltersHandler = () => {
     setCategory("");
     setstartDate("");
     setendDate("");
     navigate("/blogs");
   };
-
-  React.useEffect(() => {
-    filterEligibility();
-  }, [filterEligibility, category, endDate, startDate]);
 
   const handleCategoryChange = (event) => {
     setCategory(event.target.value);
