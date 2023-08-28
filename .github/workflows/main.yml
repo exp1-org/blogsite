@@ -2,7 +2,7 @@
 name: React build and diploy
 on:
   push:
-    branches: [development, master]
+    branches: [development, main]
 
 permissions:
   id-token: write
