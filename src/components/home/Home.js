@@ -69,16 +69,16 @@ const paramConstructor = (request, searchParams) => {
   ) {
     params = {
       category: searchParams.get("category"),
-      fromDate: searchParams.get("startDate"),
-      toDate: searchParams.get("endDate"),
+      startDate: searchParams.get("startDate"),
+      endDate: searchParams.get("endDate"),
     };
   } else if (
     request.url.includes("startDate") &&
     request.url.includes("endDate")
   ) {
     params = {
-      fromDate: searchParams.get("startDate"),
-      toDate: searchParams.get("endDate"),
+      startDate: searchParams.get("startDate"),
+      endDate: searchParams.get("endDate"),
     };
   } else if (request.url.includes("category")) {
     params = {
